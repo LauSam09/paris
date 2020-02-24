@@ -1,4 +1,4 @@
-import unitsService from '../services/units-service'
+import * as unitsService from '../services/units.service'
 
 export const getAll = async (_, res, next) => {
   try {

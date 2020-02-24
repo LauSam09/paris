@@ -1,6 +1,5 @@
 import express from 'express'
-
-import unitsRouter from './routers/units-router'
+import unitsRouter from './units.router'
 
 const router = express.Router()
 
