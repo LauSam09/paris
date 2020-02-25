@@ -2,7 +2,8 @@
   "name": "units",
   "version": "0.1.0",
   "description": "A microservice for dealing with units",
-  "main": "index.mjs",
+  "repository": "https://github.com/LauSam09/paris",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon --exec babel-node src/server.js",
     "build": "babel src --out-dir dist",
