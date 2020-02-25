@@ -2,8 +2,8 @@ import { MongoClient } from 'mongodb'
 import { AlreadyExistsError, NotFoundError } from '../models/error'
 import uuid from 'uuid/v4'
 
-// Connection URL
-const url = 'mongodb://mongo:27017'
+// Connection URL - swap for 'mongo' when using docker-compose
+const url = 'mongodb://localhost:27017'
 
 // Database
 const dbName = 'units'
