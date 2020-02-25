@@ -3,7 +3,7 @@ import { AlreadyExistsError, NotFoundError } from '../models/error'
 import uuid from 'uuid/v4'
 
 // Connection URL
-const url = 'mongodb://localhost:27017'
+const url = 'mongodb://mongo:27017'
 
 // Database
 const dbName = 'units'

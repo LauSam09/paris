@@ -1,6 +1,11 @@
 version: '3.7'
 
 services:
+  units:
+    build: .
+    ports: 
+      - 3000:3000
+
   mongo:
     image: mongo
     restart: always
