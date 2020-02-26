@@ -9,3 +9,9 @@ export class AlreadyExistsError extends Error {
     super('Already exists')
   }
 }
+
+export class ValidationError extends Error {
+  constructor(message) {
+    super(message)
+  }
+}

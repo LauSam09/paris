@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb'
-import { AlreadyExistsError, NotFoundError } from '../models/error'
+import { AlreadyExistsError, NotFoundError, ValidationError } from '../models/error'
 import uuid from 'uuid/v4'
 
 // Connection URL - swap for 'mongo' when using docker-compose
@@ -12,7 +12,8 @@ console.log('db connection string: ' + url)
 
 // Database
 const dbName = 'materials'
-const collectionName = 'materials'
+const materials = 'materials'
+const units = 'units'
 
 const getClient = () => {
   return new MongoClient(url, {
@@ -26,7 +27,7 @@ export const getAll = async ()=> {
   const db = client.db(dbName)
 
   const result = await db
-    .collection(collectionName)
+    .collection(materials)
     .find({})
     .toArray()
   await connected.close()
@@ -39,7 +40,7 @@ export const get = async (id) => {
   const db = client.db(dbName)
 
   const result = await db
-    .collection(collectionName)
+    .collection(materials)
     .findOne({ _id: id })
 
   await connected.close()
@@ -58,15 +59,19 @@ export const add = async (material) => {
 
   if (
     await db
-      .collection(collectionName)
+      .collection(materials)
       .findOne({ name: material.name })
   ) {
     throw new AlreadyExistsError()
   }
 
+  if (material.density && !(await db.collection(units).findOne({ _id: material.density.unitId }))) {
+    throw new ValidationError("Unit not found")
+  }
+
   material._id = uuid()
 
-  const result = await db.collection(collectionName).insertOne(material)
+  const result = await db.collection(materials).insertOne(material)
   await connected.close()
 
   if (!result.result.ok || result.insertedCount !== 1) {
@@ -83,11 +88,15 @@ export const update = async (id, material) => {
 
   material._id = id
 
-  if (!await db.collection(collectionName).findOne({ _id: id })) {
+  if (!await db.collection(materials).findOne({ _id: id })) {
     throw new NotFoundError()
   }
 
-  const result = await db.collection(collectionName).findOneAndUpdate(
+  if (material.density && !(await db.collection(units).findOne({ _id: material.density.unitId }))) {
+    throw new ValidationError("Unit not found")
+  }
+
+  const result = await db.collection(materials).findOneAndUpdate(
     { _id: id }, 
     { $set: material }, 
     { returnOriginal: false })
@@ -107,11 +116,11 @@ export const remove = async (id) => {
   const connected = await client.connect()
   const db = client.db(dbName)
 
-  if (!await db.collection(collectionName).findOne({ _id: id })) {
+  if (!await db.collection(materials).findOne({ _id: id })) {
     throw new NotFoundError()
   }
 
-  const result = await db.collection(collectionName).deleteOne({ _id: id })
+  const result = await db.collection(materials).deleteOne({ _id: id })
   connected.close()
 
   if (!result.result.ok) {
