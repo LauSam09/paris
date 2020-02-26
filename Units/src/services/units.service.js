@@ -3,7 +3,12 @@ import { AlreadyExistsError, NotFoundError } from '../models/error'
 import uuid from 'uuid/v4'
 
 // Connection URL - swap for 'mongo' when using docker-compose
-const url = 'mongodb://localhost:27017'
+const host = process.env.NODE_ENV === 'production'
+  ? 'mongo'
+  : 'localhost'
+const url = `mongodb://${host}:27017`
+
+console.log('db connection string: ' + url)
 
 // Database
 const dbName = 'units'
