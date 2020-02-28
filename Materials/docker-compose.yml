@@ -1,12 +1,12 @@
 version: '3.7'
 
 services:
-  api:
+  materials-api:
     build: .
     ports: 
       - 3001:3000
 
-  mongo:
+  materials-db:
     image: mongo
     restart: always
     ports:
@@ -15,7 +15,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
 
-  mongo-express:
+  materials-web:
     image: mongo-express
     restart: always
     ports:

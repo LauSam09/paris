@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   units-api:
-    build: .
+    build: ./Units
     ports: 
       - 3000:3000
 
@@ -15,11 +15,16 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
 
-  units-web:
-    image: mongo-express
+  materials-api:
+    build: ./Materials
+    ports: 
+      - 3001:3000
+
+  materials-db:
+    image: mongo
     restart: always
     ports:
-      - 8081:8081
+      - 27018:27017
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
