@@ -38,7 +38,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "90642960-570e-41f8-a566-fe3a36aa5d38"
+									"value": "94467e3b-ac70-4964-8dd8-7cffe6290431"
 								}
 							]
 						}
@@ -59,7 +59,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"millimetres\",\n\t\"shortName\": \"mm\",\n\t\"type\": 0\n}",
+							"raw": "{\n\t\"name\": \"feet\",\n\t\"shortName\": \"ft\",\n\t\"type\": 0\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -89,7 +89,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"millimetres\",\n\t\"shortName\": \"mm\",\n\t\"type\": 1\n}",
+							"raw": "{\n\t\"name\": \"millimeters\",\n\t\"shortName\": \"mm\",\n\t\"type\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -107,7 +107,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "90642960-570e-41f8-a566-fe3a36aa5d38"
+									"value": "94467e3b-ac70-4964-8dd8-7cffe6290431"
 								}
 							]
 						}
@@ -130,7 +130,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "94467e3b-ac70-4964-8dd8-7cffe6290431"
 								}
 							]
 						}
@@ -194,7 +194,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"millimetres\",\n\t\"shortName\": \"mm\",\n\t\"type\": 0\n}",
+							"raw": "{\n\t\"name\": \"cr4\",\n\t\"density\": {\n\t\t\"value\": 2850,\n\t\t\"unitsId\": \"325fdf44-f783-475f-87f6-1640b12a48db\"\n\t}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -224,7 +224,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"millimetres\",\n\t\"shortName\": \"mm\",\n\t\"type\": 1\n}",
+							"raw": "{\n    \"name\": \"aluminum\",\n    \"density\": {\n        \"value\": 2800,\n        \"unitId\": \"325fdf44-f783-475f-87f6-1640b12a48db\",\n        \"shortName\": \"kg/m³\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -242,7 +242,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "90642960-570e-41f8-a566-fe3a36aa5d38"
+									"value": "1ef0075f-4466-4731-99e4-0ff6393bb4f2"
 								}
 							]
 						}
@@ -300,33 +300,45 @@
 	],
 	"variable": [
 		{
-			"id": "22e8047f-eaed-4735-a32b-644f03175bce",
+			"id": "aa6cc069-e6e0-44dd-9bc9-9d4e37581308",
 			"key": "baseUrl",
 			"value": "http://localhost",
 			"type": "string"
 		},
 		{
-			"id": "5c7a6480-796e-45b9-8f69-36a305be400c",
+			"id": "06e54fd5-4b70-48d6-855d-9e67e20b6093",
 			"key": "basePort",
 			"value": "3000",
 			"type": "string"
 		},
 		{
-			"id": "f5b96287-b54f-42d2-8a88-6ffdcb46ff38",
+			"id": "2177641c-feb0-4fd8-a321-e7e5b735a7d9",
 			"key": "apiUrl",
 			"value": "{{baseUrl}}:{{basePort}}/api",
 			"type": "string"
 		},
 		{
-			"id": "ddb530f8-f722-425c-bca3-dbf1d2544cee",
-			"key": "unitsUrl",
-			"value": "{{apiUrl}}/units",
+			"id": "70243067-e01b-40a9-a112-20e8d85b3a9a",
+			"key": "unitsPort",
+			"value": "3000",
 			"type": "string"
 		},
 		{
-			"id": "1fd1e201-d1c5-4d2d-a272-99a4e201e329",
+			"id": "6b7db9ab-5b93-49a4-ae53-4f2fec3827d4",
+			"key": "unitsUrl",
+			"value": "{{baseUrl}}:{{unitsPort}}/api/units",
+			"type": "string"
+		},
+		{
+			"id": "89036665-cac5-4463-b291-1f42a3fdbb7f",
+			"key": "materialsPort",
+			"value": "3001",
+			"type": "string"
+		},
+		{
+			"id": "d02518bf-fb0b-433f-b6fd-38ea03093b46",
 			"key": "materialsUrl",
-			"value": "{{apiUrl}}/materials",
+			"value": "{{baseUrl}}:{{materialsPort}}/api/materials",
 			"type": "string"
 		}
 	],
