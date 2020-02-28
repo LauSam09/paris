@@ -1,0 +1,14 @@
+{ "_id": "1ef0075f-4466-4731-99e4-0ff6393bb4f2", "name": "aluminium", 
+  "density": { 
+    "value": 2700, 
+    "unitId": "325fdf44-f783-475f-87f6-1640b12a48db",
+    "shortName": "kg/m³"
+  }   
+}
+{ "_id": "1cd23d68-9100-4029-835e-f2b73364560c", "name": "steel", 
+  "density": { 
+    "value": 3000, 
+    "unitId": "325fdf44-f783-475f-87f6-1640b12a48db",
+    "shortName": "kg/m³"
+  } 
+}
