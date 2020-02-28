@@ -66,7 +66,7 @@ export const add = async (material) => {
   }
 
   if (material.density && !(await db.collection(units).findOne({ _id: material.density.unitId }))) {
-    throw new ValidationError("Unit not found")
+    throw new ValidationError('Unit not found')
   }
 
   material._id = uuid()
@@ -93,7 +93,7 @@ export const update = async (id, material) => {
   }
 
   if (material.density && !(await db.collection(units).findOne({ _id: material.density.unitId }))) {
-    throw new ValidationError("Unit not found")
+    throw new ValidationError('Unit not found')
   }
 
   const result = await db.collection(materials).findOneAndUpdate(
