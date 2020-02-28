@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "435b3503-75e3-44d4-b2ac-2c260923e701",
+		"_postman_id": "aee112b3-e6e5-4888-a969-d8a0290ec8d8",
 		"name": "Paris",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -139,6 +139,141 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Materials",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{materialsUrl}}",
+							"host": [
+								"{{materialsUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{materialsUrl}}/:id",
+							"host": [
+								"{{materialsUrl}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1ef0075f-4466-4731-99e4-0ff6393bb4f2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"millimetres\",\n\t\"shortName\": \"mm\",\n\t\"type\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{materialsUrl}}",
+							"host": [
+								"{{materialsUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"millimetres\",\n\t\"shortName\": \"mm\",\n\t\"type\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{materialsUrl}}/:id",
+							"host": [
+								"{{materialsUrl}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "90642960-570e-41f8-a566-fe3a36aa5d38"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{materialsUrl}}/:id",
+							"host": [
+								"{{materialsUrl}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1ef0075f-4466-4731-99e4-0ff6393bb4f2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
@@ -165,21 +300,33 @@
 	],
 	"variable": [
 		{
-			"id": "e7ae415f-dd44-4730-94ea-14c85002e58c",
+			"id": "22e8047f-eaed-4735-a32b-644f03175bce",
 			"key": "baseUrl",
 			"value": "http://localhost",
 			"type": "string"
 		},
 		{
-			"id": "a11adc8d-a39c-4633-8044-8ec94c4c234f",
-			"key": "unitsPort",
+			"id": "5c7a6480-796e-45b9-8f69-36a305be400c",
+			"key": "basePort",
 			"value": "3000",
 			"type": "string"
 		},
 		{
-			"id": "f3fb62b9-2454-4b6a-9724-d9c6aac63e49",
+			"id": "f5b96287-b54f-42d2-8a88-6ffdcb46ff38",
+			"key": "apiUrl",
+			"value": "{{baseUrl}}:{{basePort}}/api",
+			"type": "string"
+		},
+		{
+			"id": "ddb530f8-f722-425c-bca3-dbf1d2544cee",
 			"key": "unitsUrl",
-			"value": "{{baseUrl}}:{{unitsPort}}/api/units",
+			"value": "{{apiUrl}}/units",
+			"type": "string"
+		},
+		{
+			"id": "1fd1e201-d1c5-4d2d-a272-99a4e201e329",
+			"key": "materialsUrl",
+			"value": "{{apiUrl}}/materials",
 			"type": "string"
 		}
 	],
