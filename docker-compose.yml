@@ -1,6 +1,20 @@
 version: '3.7'
 
 services:
+  zookeeper:
+    image: zookeeper
+    ports:
+      - 2181:2181
+
+  kafka:
+    image: confluentinc/cp-kafka
+    ports:
+      - 9092:9092
+    environment: 
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181 # Had to use ip address here.
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092 # And here too.
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
   units-api:
     build: ./Units
     ports: 
