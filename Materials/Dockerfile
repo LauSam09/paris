@@ -8,7 +8,6 @@ WORKDIR /app
 COPY package*.json ./
 
 RUN npm install
-RUN npm install -g react-scripts
 COPY . /app
 RUN npm run build
 
