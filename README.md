@@ -1,7 +1,7 @@
 # Proof of concept microservices distribution
 
 ## Getting Started
-1. Install docker
+1. Install docker (enable Linux containers - right click in system tray and select 'Switch to Linux containers')
 2. Clone/download this repository.
 3. Update the ip address in `docker-compose.yml` to your ip.
 4. Go to the root repository directory and run `docker-compose up`.
@@ -57,7 +57,7 @@ Example event:
 
 
 ### Endpoints
-All endpoints are included in `Paris.postman_collection.json` which can be imported into Postman.
+All endpoints are included in `Paris.postman_collection.json`.
 
 ## Limitations
 * No authentication or user management
