@@ -6,6 +6,7 @@
 3. Update the ip address in `docker-compose.yml` to your ip.
 4. Go to the root repository directory and run `docker-compose up`.
 5. Import the postman collection to query the api.
+6. Visit `localhost:8081` and `localhost:8082` to see web interfaces for the two databases.
 
 ## Architecture
 Consists of two microservices:
