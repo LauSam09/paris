@@ -61,3 +61,4 @@ All endpoints are included in `Paris.postman_collection.json` which can be impor
 ## Limitations
 * No authentication or user management
 * No concurrency checks
+* Very limited validation (unique name check & unit existence check is about it!)
