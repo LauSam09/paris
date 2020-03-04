@@ -1,6 +1,8 @@
 import { MongoClient } from 'mongodb'
-import { AlreadyExistsError, NotFoundError } from '../models/error'
 import uuid from 'uuid/v4'
+
+import { AlreadyExistsError, NotFoundError } from '../models/error'
+import * as eventService from './units-event.service'
 
 // Connection URL - swap for 'units-db' when using docker-compose
 const host = process.env.NODE_ENV === 'production'
@@ -67,6 +69,13 @@ export const add = async (unit) => {
   unit._id = uuid()
 
   const result = await db.collection(collectionName).insertOne(unit)
+
+  try {
+    eventService.publishCreate(result.ops[0])
+  } catch (error) {
+    console.error(`Failed to publish create unit: ${JSON.stringify(error)}`)
+  }
+
   await connected.close()
 
   if (!result.result.ok || result.insertedCount !== 1) {
@@ -92,10 +101,16 @@ export const update = async (id, unit) => {
     { $set: unit }, 
     { returnOriginal: false })
 
-    connected.close()
+  connected.close()
 
   if (!result.ok || !result.value) {
     throw new Error('Could not update material for unknown reason')
+  }
+
+  try {
+    eventService.publishUpdate(result.value)
+  } catch (error) {
+    console.error(`Failed to publish update unit: ${JSON.stringify(error)}`)
   }
 
   return result.value
@@ -116,5 +131,11 @@ export const remove = async (id) => {
 
   if (!result.result.ok) {
     throw new Error('Could not delete unit for unknown reason')
+  }
+
+  try {
+    eventService.publishDelete(id)
+  } catch (error) {
+    console.error(`Failed to publish delete unit: ${JSON.stringify(error)}`)
   }
 }

@@ -89,7 +89,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"millimeters\",\n\t\"shortName\": \"mm\",\n\t\"type\": 1\n}",
+							"raw": "    {\n        \"name\": \"kilograms per cubic metre\",\n        \"shortName\": \"kg/m3\",\n        \"type\": 3\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -107,7 +107,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "94467e3b-ac70-4964-8dd8-7cffe6290431"
+									"value": "8277f7c1-eabe-4774-ae80-07c97e31eeed"
 								}
 							]
 						}
@@ -130,7 +130,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "94467e3b-ac70-4964-8dd8-7cffe6290431"
+									"value": "e8ea4507-5710-4f5a-b43b-208fb1c22e76"
 								}
 							]
 						}
@@ -194,7 +194,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"cr4\",\n\t\"density\": {\n\t\t\"value\": 2850,\n\t\t\"unitsId\": \"325fdf44-f783-475f-87f6-1640b12a48db\"\n\t}\n}",
+							"raw": "{\n\t\"name\": \"steel\",\n\t\"density\": {\n\t\t\"value\": 2850,\n\t\t\"unitId\": \"8277f7c1-eabe-4774-ae80-07c97e31eeed\"\n\t}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -300,43 +300,43 @@
 	],
 	"variable": [
 		{
-			"id": "aa6cc069-e6e0-44dd-9bc9-9d4e37581308",
+			"id": "c0d97eb5-d51b-4c08-84c4-54f972df6e1a",
 			"key": "baseUrl",
 			"value": "http://localhost",
 			"type": "string"
 		},
 		{
-			"id": "06e54fd5-4b70-48d6-855d-9e67e20b6093",
+			"id": "3bae0984-5d00-4791-b379-ac05ea62ebf2",
 			"key": "basePort",
 			"value": "3000",
 			"type": "string"
 		},
 		{
-			"id": "2177641c-feb0-4fd8-a321-e7e5b735a7d9",
+			"id": "667845cc-0625-43f2-8ee1-185f4c5d5687",
 			"key": "apiUrl",
 			"value": "{{baseUrl}}:{{basePort}}/api",
 			"type": "string"
 		},
 		{
-			"id": "70243067-e01b-40a9-a112-20e8d85b3a9a",
+			"id": "26eadae1-ed6c-43c4-bf60-ef9b78ac002b",
 			"key": "unitsPort",
 			"value": "3000",
 			"type": "string"
 		},
 		{
-			"id": "6b7db9ab-5b93-49a4-ae53-4f2fec3827d4",
+			"id": "ca8239c3-f942-49a6-94e1-6f941f5b79bb",
 			"key": "unitsUrl",
 			"value": "{{baseUrl}}:{{unitsPort}}/api/units",
 			"type": "string"
 		},
 		{
-			"id": "89036665-cac5-4463-b291-1f42a3fdbb7f",
+			"id": "bc6c39b6-f0d3-48cf-8c4b-6d11c99fcab1",
 			"key": "materialsPort",
 			"value": "3001",
 			"type": "string"
 		},
 		{
-			"id": "d02518bf-fb0b-433f-b6fd-38ea03093b46",
+			"id": "facefbd3-041b-48b8-b678-0008e27982a7",
 			"key": "materialsUrl",
 			"value": "{{baseUrl}}:{{materialsPort}}/api/materials",
 			"type": "string"
