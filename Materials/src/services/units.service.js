@@ -12,6 +12,7 @@ console.log('db connection string: ' + url)
 // Database
 const dbName = 'materials'
 const unitsCollection = 'units'
+const materialsCollection = 'materials'
 
 const getClient = () => {
   return new MongoClient(url, {
@@ -45,18 +46,23 @@ export const update = async (id, unit) => {
     throw new NotFoundError()
   }
 
-  const result = await db.collection(unitsCollection).findOneAndUpdate(
+  const unitResult = await db.collection(unitsCollection).findOneAndUpdate(
     { _id: id }, 
     { $set: unit }, 
     { returnOriginal: false })
 
-    connected.close()
-
-  if (!result.ok || !result.value) {
+  if (!unitResult.ok || !unitResult.value) {
     throw new Error('Could not update unit for unknown reason')
   }
 
-  return result.value
+  await db.collection(materialsCollection).updateMany(
+    { 'density.unitId': id },
+    { $set: { 'density.shortName': unit.shortName } 
+  })
+
+  connected.close()
+
+  return unitResult.value
 }
 
 export const remove = async (id) => {

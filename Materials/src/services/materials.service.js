@@ -65,8 +65,13 @@ export const add = async (material) => {
     throw new AlreadyExistsError()
   }
 
-  if (material.density && !(await db.collection(units).findOne({ _id: material.density.unitId }))) {
-    throw new ValidationError('Unit not found')
+  if (material.density) {
+    const unit = await db.collection(units).findOne({ _id: material.density.unitId })
+    if (!unit) {
+      throw new ValidationError('Unit not found')
+    } else {
+      material.density.unitShortName = unit.shortName
+    }
   }
 
   material._id = uuid()

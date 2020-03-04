@@ -50,8 +50,7 @@ const handleMessageValue = async event => {
       case 'create': {
         const sanitisedUnit = {
           _id: event.value._id,
-          shortName: event.value.shortName,
-          name: event.value.name
+          shortName: event.value.shortName
         }
         console.log(`Adding unit ${JSON.stringify(sanitisedUnit)}`)
         await unitsService.add(sanitisedUnit)
@@ -59,12 +58,11 @@ const handleMessageValue = async event => {
         break
       case 'update': {
         const sanitisedUnit = {
-          shortName: event.value.shortName,
-          name: event.value.name
+          _id: event.value._id,
+          shortName: event.value.shortName
         }
         
         await unitsService.update(event.value._id, sanitisedUnit)
-        // TODO: Go through and update nested units in materials collection
         break
       }
       case 'delete': {
@@ -76,6 +74,6 @@ const handleMessageValue = async event => {
         console.error(`Unexpected message mode '${event.mode}'`)
     }
   } catch (err) {
-    console.error(`Failed to action ${event.mode} event: ${JSON.stringify(event.value)}`)
+    console.error(`Failed to action ${event.mode} event: ${JSON.stringify(event.value)}. Error: ${JSON.stringify(err)}`)
   }
 }
