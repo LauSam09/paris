@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "aee112b3-e6e5-4888-a969-d8a0290ec8d8",
+		"_postman_id": "6d11e14b-17f4-49e8-8e79-0fc145c95a7d",
 		"name": "Paris",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,7 +9,7 @@
 			"name": "Units",
 			"item": [
 				{
-					"name": "Get All",
+					"name": "Get Units",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -23,7 +23,7 @@
 					"response": []
 				},
 				{
-					"name": "Get",
+					"name": "Get Unit",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -46,7 +46,7 @@
 					"response": []
 				},
 				{
-					"name": "Add",
+					"name": "Add Unit",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -59,7 +59,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"feet\",\n\t\"shortName\": \"ft\",\n\t\"type\": 0\n}",
+							"raw": "{\n\t\"name\": \"kilograms per cubic metre\",\n\t\"shortName\": \"kg/m3\",\n\t\"type\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -76,7 +76,7 @@
 					"response": []
 				},
 				{
-					"name": "Update",
+					"name": "Update Unit",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -115,7 +115,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete",
+					"name": "Delete Unit",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -144,7 +144,7 @@
 			"name": "Materials",
 			"item": [
 				{
-					"name": "Get All",
+					"name": "Get Materials",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -158,7 +158,7 @@
 					"response": []
 				},
 				{
-					"name": "Get",
+					"name": "Get Material",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -181,7 +181,7 @@
 					"response": []
 				},
 				{
-					"name": "Add",
+					"name": "Add Material",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -211,7 +211,7 @@
 					"response": []
 				},
 				{
-					"name": "Update",
+					"name": "Update Material",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -250,7 +250,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete",
+					"name": "Delete Material",
 					"request": {
 						"method": "DELETE",
 						"header": [],
