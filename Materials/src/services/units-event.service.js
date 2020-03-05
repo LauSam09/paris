@@ -37,35 +37,43 @@ export const subscribe = async (server) => {
     })
 
   } catch (err) {
-    console.log('err')
     console.error(`Failed to subscribe to topic: ${JSON.stringify(err)}`)
   }
-
-  console.log('exiting subscribe')
 }
 
 const handleMessageValue = async event => {
   try {
     switch (event.mode) {
       case 'create': {
+        // Only care about density units
+        if (+event.value.type !== 1) {
+          console.log('Ignoring non-density unit')
+          return
+        }
+
         const sanitisedUnit = {
           _id: event.value._id,
           shortName: event.value.shortName
         }
-        console.log(`Adding unit ${JSON.stringify(sanitisedUnit)}`)
+        console.log('Adding unit')
         await unitsService.add(sanitisedUnit)
       }
         break
       case 'update': {
+        if (+event.value.type !== 1) {
+          console.log('Ignoring non-density unit')
+          return
+        }
         const sanitisedUnit = {
           _id: event.value._id,
           shortName: event.value.shortName
         }
-        
+        console.log('Updating unit')
         await unitsService.update(event.value._id, sanitisedUnit)
         break
       }
       case 'delete': {
+        console.log('Removing unit')
         await unitsService.remove(event.value)
         // TODO: Consider behaviour if nested in materials.
         break
