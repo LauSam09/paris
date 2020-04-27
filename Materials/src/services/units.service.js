@@ -57,7 +57,7 @@ export const update = async (id, unit) => {
 
   await db.collection(materialsCollection).updateMany(
     { 'density.unitId': id },
-    { $set: { 'density.shortName': unit.shortName } 
+    { $set: { 'density.unitShortName': unit.unitShortName } 
   })
 
   connected.close()

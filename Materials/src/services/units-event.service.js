@@ -66,7 +66,7 @@ const handleMessageValue = async event => {
         }
         const sanitisedUnit = {
           _id: event.value._id,
-          shortName: event.value.shortName
+          unitShortName: event.value.shortName
         }
         console.log('Updating unit')
         await unitsService.update(event.value._id, sanitisedUnit)
